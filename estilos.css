@@ -1,0 +1,208 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body
+{
+    background: linear-gradient(135deg, #7b8d7e, #c8d8c3);
+    display: flex;
+    justify-content: center;
+    
+    height: 100vh;
+}
+
+.login-container{
+    background: #ecf0f1;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  
+}
+
+.login-container h2
+{
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #333;
+}
+
+.login-container input
+{
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.login-container input:focus
+{
+    border-color: #ff6f61;  
+}
+
+.login-container button 
+{
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 1rem;
+    background-color: #ff6f61;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover
+{
+    background-color: #ff4a3d;
+}
+
+.login-container p
+{ 
+    margin-top: 1rem;
+    color: #666;
+}
+
+.login-container a
+{
+    color: #ff6f61;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-container a:hover
+{
+    color: #ff4a3d;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.welcome-container
+{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    
+   
+}
+
+.h2
+{
+    margin-bottom: 20px;
+    color:#c76311;
+}
+
+p
+{
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #975e1c;
+}
+img {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos para la tabla del Navbar */
+.navbar-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #2c3e50;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-table tr {
+    text-align: center;
+}
+
+.navbar-table td {
+    padding: 15px 25px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-table a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+}
+
+.navbar-table a:hover {
+    background-color: #34495e;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Estilo para el hover de los enlaces */
+.navbar-table a:hover {
+    background-color: #2980b9;
+    transition: 0.3s;
+}
+
+/* Bordes sutiles entre los enlaces */
+.navbar-table td {
+    border-right: 1px solid #34495e;
+}
+
+.navbar-table td:last-child {
+    border-right: none;
+}
+
+/* Responsividad: ajustes para móviles */
+@media (max-width: 768px) {
+    .navbar-table {
+        width: 100%;
+    }
+
+    .navbar-table td {
+        padding: 10px;
+    }
+
+    .navbar-table a {
+        font-size: 16px;
+    }
+}
