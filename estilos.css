@@ -5,9 +5,10 @@
     font-family: 'Arial', sans-serif;
 }
 
+
 body
 {
-    background: linear-gradient(135deg, #7b8d7e, #c8d8c3);
+    background: linear-gradient(135deg, #e8e9d6, #f1fcd8);
     display: flex;
     justify-content: center;
     
@@ -45,7 +46,7 @@ body
 
 .login-container input:focus
 {
-    border-color: #ff6f61;  
+    border-color: #314d2e;  
 }
 
 .login-container button 
@@ -53,18 +54,19 @@ body
     width: 100%;
     padding: 0.8rem;
     margin-top: 1rem;
-    background-color: #ff6f61;
+    background-color: #4c614a;
     color: #fff;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    
 }
 
 .login-container button:hover
 {
-    background-color: #ff4a3d;
+    background-color: #4f805f;
 }
 
 .login-container p
@@ -75,14 +77,14 @@ body
 
 .login-container a
 {
-    color: #ff6f61;
+    color: #39685e;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .login-container a:hover
 {
-    color: #ff4a3d;
+    color: #2e5235;
 }
 
 
@@ -105,32 +107,44 @@ body
 
 .welcome-container
 {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+    padding: 0px;
+    border-radius: 0px;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
     width: 300px;
-    
+    text-align: center;
+
    
 }
 
+
+
 .h2
 {
-    margin-bottom: 20px;
-    color:#c76311;
+    margin-bottom: 400px;
+    color:#337e43;
+    text-align: center;
 }
 
 p
 {
     font-size: 18px;
-    margin-bottom: 30px;
-    color: #975e1c;
+    margin: 30px auto; /* Margen superior e inferior de 30px, y centrado horizontalmente */
+    padding: 10px; /* Espaciado interno opcional */
+    color: #101310;
+    text-align: center;
+    max-width: 990px;
+
 }
 img {
-    width: 100px;
-    height: auto;
+    height: 40%;
+    width: 40%;
+    object-fit: contain;
     display: block;
-    margin: auto;
+    margin: 0px;
+    text-align: center;
+    
+    object-fit: contain;
 }
 
 
@@ -145,21 +159,27 @@ img {
 
 
 
-/* Estilos para la tabla del Navbar */
-.navbar-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #2c3e50;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-table tr {
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #404b39;
     text-align: center;
 }
 
+/* Estilos para la tabla del Navbar Horizontal */
+.navbar-table {
+    width: 100%;
+    margin: 50px auto;
+    border-collapse: collapse;
+    background-color: #2c5032;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 .navbar-table td {
-    padding: 15px 25px;
-    transition: background-color 0.3s ease;
+    text-align: center;
+    padding: 15px;
+    border-right: 1px solid #404b39;
 }
 
 .navbar-table a {
@@ -172,37 +192,138 @@ img {
 }
 
 .navbar-table a:hover {
-    background-color: #34495e;
+    background-color: #769161;
+    transition: 0.3s;
     padding: 10px;
     border-radius: 5px;
 }
 
-/* Estilo para el hover de los enlaces */
-.navbar-table a:hover {
-    background-color: #2980b9;
-    transition: 0.3s;
-}
-
-/* Bordes sutiles entre los enlaces */
-.navbar-table td {
-    border-right: 1px solid #34495e;
-}
-
+/* Eliminar el borde derecho de la última celda */
 .navbar-table td:last-child {
     border-right: none;
 }
 
-/* Responsividad: ajustes para móviles */
+/* Opcional: Estilo para el borde de la tabla */
+.navbar-table {
+    border: 1px solid #34495e;
+}
+
+/* Responsividad: Ajustes para móviles */
 @media (max-width: 768px) {
     .navbar-table {
-        width: 100%;
-    }
-
-    .navbar-table td {
-        padding: 10px;
+        width: 10%;
     }
 
     .navbar-table a {
         font-size: 16px;
     }
 }
+.body button 
+{
+    width: 50%;
+    padding: 0.8rem;
+    margin-top: 1rem;
+    background-color: #6faa6a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+
+.titulo{
+
+
+    background-color: #1f3b1c;
+    border-radius: 5px;
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 1rem;
+    color: white;
+    border-radius: 10px; /* Ajusta el valor según qué tan redondeados quieres los bordes */
+    padding: 2rem;
+    font-family: 'Abril Fatface', cursive;
+    text-align: center;
+
+}
+.content{
+
+    background-color: #ece3bf;
+    border-radius: 10px; /* Ajusta el valor según qué tan redondeados quieres los bordes */
+    padding: 1rem;
+
+}
+
+
+.lg {
+    width: max-content;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+#identificador{
+    
+    background-color: rgb(39, 58, 39);
+    
+    }
+    #tacos{
+    
+    background-color: rgb(23, 63, 30);
+    border-color:  rgb(23, 63, 30);
+    }
+    #pasta{
+    
+        background-color: rgb(23, 63, 30);
+        border-color:  rgb(23, 63, 30);
+    
+    }
+    #ensalada{
+        background-color: rgb(23, 63, 30);
+        border-color:  rgb(23, 63, 30);
+    }
+    #mole{
+    
+        background-color: rgb(23, 63, 30);
+        border-color:  rgb(23, 63, 30);
+    }
+    #tacos:hover{
+    
+    background-color: rgb(65, 233, 135);
+    color: rgb(0, 0, 0);
+    border-color: rgb(45, 219, 83);
+    }
+    #pasta:hover{
+    
+        background-color: rgb(65, 233, 135);
+    color: rgb(0, 0, 0);
+    border-color: rgb(45, 219, 83);
+        }
+        #ensalada:hover{
+    
+            background-color: rgb(65, 233, 135);
+            color: rgb(0, 0, 0);
+            border-color: rgb(45, 219, 83);
+            
+            }
+    
+        #mole:hover{
+    
+            background-color: rgb(65, 233, 135);
+            color: rgb(0, 0, 0);
+            border-color: rgb(45, 219, 83);
+                
+          }
+
+
+          
+
+
+         
+       
