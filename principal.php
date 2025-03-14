@@ -14,7 +14,7 @@
     <br>
 <table class="navbar-table">
         <tr>
-        <td><a href="#carrito"><img src="https://cdn-icons-png.flaticon.com/128/2845/2845818.png" alt="Ícono de usuario"></a></td>
+        <td><a href="#carrito"> <img src="imagenes/logo.png" alt="Ícono de carrito"></a></td>
            
         <td><a href="#inicio">Inicio</a></td>
         <td><a href="informacion.php?seccion=vision">Visión</a></td>

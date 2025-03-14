@@ -47,7 +47,7 @@ if (isset($_GET['eliminar'])) {
 <div class="titulo ">
     <table>
 <tr>
-        <td><a href="#carrito"><img src="https://cdn-icons-png.flaticon.com/128/2845/2845818.png" alt="Ícono de usuario"></a></td>
+        <td><a href="#carrito"><a href="#carrito"> <img src="imagenes/logo.png" alt="Ícono de carrito"></a></td>
            
         <td>   <font size="6">
     <b><i>
@@ -115,7 +115,7 @@ Cada articulo para tu necesidad.
     <button type="submit">Regresar al inicio</button> 
 </form>
 <div class="lg">
-<a href="#carrito"><img src="https://cdn-icons-png.freepik.com/256/6463/6463834.png?semt=ais_hybrid" alt="Ícono de usuario"></a>
+<a href="#carrito"><a href="#carrito"> <img src="imagenes/carri.png" alt="Ícono de carrito"></a>
 </div>
 </div>
 </body>
