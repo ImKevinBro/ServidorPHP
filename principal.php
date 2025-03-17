@@ -1,8 +1,10 @@
+
+
 <?php
 session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
+//Prueba 1.3
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: index.php"); // Redirige al login si no ha iniciado sesión
