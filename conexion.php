@@ -1,45 +1,18 @@
 <?php
-//conexion a la base de datos    
-$host ="localhost";
-$usuario = "root";
+$servername = "localhost";
+$username = "root";
 $password = "";
-$basededatos = "registros";
+$dbname = "perfiles";
 
-$conexion = new mysqli($host, $usuario, $password, $basededatos);
-
+// crear la conexion
+$conexion = new mysqli($servername, $username, $password, $dbname);
+// comprobar la conexion
 if ($conexion->connect_error) 
 {
-    die("La conexion fallo: " . $conexion->connect_error);
+    die("conexion fallida: " . $conn->connect_error);
 }
 else
 {
-    echo "Conexion exitosa";
+    echo "conexion exitosa";
 }
-
-//insertar registros
-
-if (isset($_POST['Registrarse']))
-{
-if (empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['contrasena']))
-{
-   echo "Todos los campos son obligatorios";
-}
-else
-{
-   $nombre = $_POST['nombre'];
-   $apellido = $_POST['apellido'];
-   $contrasena = $_POST['contrasena'];
-   $sql = $conexion->query("INSERT INTO usuarios ('id_usuario',''nombre', 'apellido', 'contrasena') VALUES ('null',''$nombre', '$apellido', '$contrasena')");
-
-   if ($sql==1)
-   {
-       echo "Registro exitoso";
-   }
-   else
-   {
-       echo "Error al registrar";
-   }
-}         
-}
-
 ?>
