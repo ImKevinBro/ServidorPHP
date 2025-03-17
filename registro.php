@@ -9,13 +9,13 @@
 <body>
     <div class="login-container">
         <h2>Registro</h2>
-        <form action="procesar_registro.php" method="POST">
+        <form action="conexion.php" method="POST">
             <input type="text" name="nombre" placeholder="Nombre" required>
-            <input type="text" name="apellidos" placeholder="Apellidos" required>
-            <input type="text" name="usuario" placeholder="Nombre de usuario" required>
+            <input type="text" name="apellido" placeholder="Apellidos" required>
+            <input type="email" name="correo" placeholder="Correo" required>
             <input type="password" name="contrasena" placeholder="Contraseña" required>
             <input type="password" name="confirmar_contrasena" placeholder="Confirme su contraseña" required>
-            <button type="submit">Registrarse</button>
+            <button type="submit" name="registrarse">Registrarse</button>
         </form>
     </div> 
 </body>

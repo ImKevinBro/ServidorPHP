@@ -9,8 +9,8 @@
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <form action="principal.php" method="POST">
-            <input type="text" name="usuario" placeholder="Nombre de usuario" required>
+        <form action="login.php" method="POST">
+            <input type="email" name="correo" placeholder="Correo" required>
             <input type="password" name="contrasena" placeholder="Contraseña" required>
             <button type="submit">Login</button>
         </form>
