@@ -3,14 +3,13 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Verificar si el usuario está autenticado
+// Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['usuario_id'])) {
-    header("Location: index.php"); // Redirige al login si no ha iniciado sesión
+    header("Location: index.php");
     exit();
 }
 
-// Obtener el nombre del usuario si está disponible
-$usuario_nombre = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : 'Usuario';
+$usuario_nombre = $_SESSION['nombre'];
 ?>
 
 <!DOCTYPE html>
