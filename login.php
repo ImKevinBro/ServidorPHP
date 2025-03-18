@@ -1,36 +1,53 @@
 <?php
 session_start();
-$host = "localhost";
-$usuario = "root";
-$password = "";
-$basededatos = "perfiles";
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-$conexion = new mysqli($host, $usuario, $password, $basededatos);
+$servidor = "localhost";
+$usuario = "root";
+$contrasena = "";
+$base_datos = "perfiles";
+
+$conexion = new mysqli($servidor, $usuario, $contrasena, $base_datos);
 
 if ($conexion->connect_error) {
-    die("La conexión falló: " . $conexion->connect_error);
+    die("Conexión fallida: " . $conexion->connect_error);
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $correo = $conexion->real_escape_string($_POST['correo']);
-    $contrasena = $_POST['contrasena'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $correo = trim($_POST['correo']);
+    $password = trim($_POST['contrasena']);
 
-    $sql = "SELECT id_usuario, nombre, contrasena FROM registros WHERE correo = '$correo'";
-    $resultado = $conexion->query($sql);
+    if (!empty($correo) && !empty($password)) {
+        $stmt = $conexion->prepare("SELECT id_usuario, nombre, apellido, contrasena FROM registros WHERE correo = ?");
+        $stmt->bind_param("s", $correo);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
 
-    if ($resultado->num_rows > 0) {
-        $usuario = $resultado->fetch_assoc();
+        if ($resultado->num_rows === 1) {
+            $usuario = $resultado->fetch_assoc();
+            
+            // Verificar contraseña
+            if (password_verify($password, $usuario['contrasena'])) {
+                $_SESSION['usuario_id'] = $usuario['id_usuario'];
+                $_SESSION['nombre'] = $usuario['nombre'];
+                $_SESSION['apellido'] = $usuario['apellido'];
 
-        if (password_verify($contrasena, $usuario['contrasena'])) {
-            $_SESSION['id_usuario'] = $usuario['id_usuario'];
-            $_SESSION['nombre'] = $usuario['nombre'];
-            header("Location: principal.php");
-            exit();
+                // Redirigir al área principal
+                header("Location: principal.php");
+                exit();
+            } else {
+                echo "❌ Contraseña incorrecta.";
+            }
         } else {
-            echo "Contraseña incorrecta";
+            echo "❌ Usuario no encontrado.";
         }
+        
+        $stmt->close();
     } else {
-        echo "No existe una cuenta con este correo";
+        echo "❌ Por favor, completa todos los campos.";
     }
 }
+
+$conexion->close();
 ?>
