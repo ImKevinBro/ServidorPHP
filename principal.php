@@ -1,20 +1,3 @@
-<?php
-session_start();
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-if (!isset($_SESSION['usuario_id'])) {
-    header("Location: index.php");
-    exit();
-}
-
-$usuario_nombre = $_SESSION['nombre'] ?? 'Usuario';
-$usuario_apellido = $_SESSION['apellido'] ?? '';
-?>
-
-$usuario_nombre = $_SESSION['nombre'];
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
