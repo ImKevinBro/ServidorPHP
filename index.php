@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $contrasena = $_POST['contrasena'];
 
     // Conectar a la base de datos
-    $conexion = new mysqli("localhost", "root", "", "tu_base_de_datos");
+    $conexion = new mysqli("localhost", "root", "", "perfiles");
 
     if ($conexion->connect_error) {
         die("Conexión fallida: " . $conexion->connect_error);
