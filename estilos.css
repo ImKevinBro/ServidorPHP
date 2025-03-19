@@ -398,3 +398,64 @@ body {
             border-radius: 5px;
             display: inline-block;
         }
+
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .metodo {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            font-size: 18px;
+            margin-left: 10px;
+            color: #555;
+            cursor: pointer;
+        }
+        
+        input[type="radio"] {
+            cursor: pointer;
+        }
+        
+        .info {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        
+        button {
+            padding: 12px;
+            font-size: 18px;
+            background-color: #477948;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #477948;
+        }
+        
+        .oculto {
+            display: none;
+        }
+        
+        /* Estilo para radio buttons seleccionados */
+        input[type="radio"]:checked + label {
+            font-weight: bold;
+            color: #a9e6aa;
+            color: black;
+        }
