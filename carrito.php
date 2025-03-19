@@ -112,10 +112,18 @@ Cada articulo para tu necesidad.
 </form>
 
 <form action="principal.php" method="get">
-    <button type="submit">Regresar al inicio</button> 
+    <button type="submit">Regresar al inicio</button>
+
+    
 </form>
+
+
+<form action="pagar.php" method="get">
+    <button type="submit">Pagar</button> 
+    </form>
 <div class="lg">
 <a href="#carrito"><a href="#carrito"> <img src="imagenes/carri.png" alt="Ícono de carrito"></a>
+
 </div>
 </div>
 </body>
