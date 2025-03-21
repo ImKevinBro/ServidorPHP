@@ -1,440 +1,178 @@
 <?php
-$productos = [];
+session_start();
 
-for ($i = 1; $i <= 50; $i++) {
-    $productos[] = [
-        "nombre" => "Producto $i",
-        "descripcion" => "Descripción breve del producto $i.",
-        "imagen" => "imagenes/producto$i.jpg", // Asegúrate de tener imágenes en la carpeta 'imagenes'
-        "precio" => rand(50, 1000) . " USD"
-    ];
+// Inicializar el carrito si no existe
+if (!isset($_SESSION['carrito'])) {
+    $_SESSION['carrito'] = [];
 }
 
-
-$productos = [
-    [
-        "nombre" => "Laptop Gamer",
-        "descripcion" => "Potente laptop para juegos con tarjeta gráfica RTX.",
-        "imagen" => "imagenes/laptop-gamer.jpg",
-        "precio" => "1200 USD"
-    ],
-    [
-        "nombre" => "Smartphone Pro",
-        "descripcion" => "Teléfono con pantalla OLED y cámara de 108 MP.",
-        "imagen" => "imagenes/tel.jpg",
-        "precio" => "999 USD"
-    ],
-    [
-        "nombre" => "Auriculares Bluetooth",
-        "descripcion" => "Auriculares con cancelación de ruido y sonido HD.",
-        "imagen" => "imagenes/auriculares.jpg",
-        "precio" => "150 USD"
-    ],
-    [
-        "nombre" => "Monitor 4K",
-        "descripcion" => "Monitor de alta definición ideal para diseño y gaming.",
-        "imagen" => "imagenes/monitor.jpg",
-        "precio" => "400 USD"
-    ],
-    [
-        "nombre" => "Teclado Mecánico",
-        "descripcion" => "Teclado RGB con switches mecánicos para gaming.",
-        "imagen" => "imagenes/teclado.jpg",
-        "precio" => "120 USD"
-    ],
-
-
-
-
-
-
-
-
-    [
-        "nombre" => "Servidor IOS",
-        "descripcion" => "Servidor IOS4 listo para conectar y ejecutar.",
-        "imagen" => "imagenes/ios.jpg",
-        "precio" => "300 USD"
-    ],
-    [
-        "nombre" => "Servicio de nube ",
-        "descripcion" => "Sevicio de 50Teras de memoria para la nube",
-        "imagen" => "imagenes/nube.jpg",
-        "precio" => "1999 USD"
-    ],
-    [
-        "nombre" => "Router Lenovo",
-        "descripcion" => "Auriculares con cancelación de ruido y sonido HD.",
-        "imagen" => "imagenes/router1.jpg",
-        "precio" => "550 USD"
-    ],
-    [
-        "nombre" => "Libro sistemas distribuidos",
-        "descripcion" => "Libro sobre sistema distribuidos.",
-        "imagen" => "imagenes/libro1.jpg",
-        "precio" => "30 USD"
-    ],
-    [
-        "nombre" => "Router de alta calidad",
-        "descripcion" => "Rouer con switches mecánicos para gaming.",
-        "imagen" => "imagenes/router2.jpg",
-        "precio" => "120 USD"
-    ],
-
-
-
-    [
-        "nombre" => "Libro sobre Sistemas distribuidos",
-        "descripcion" => "Libro en ingles sobre los sitemas distribuidos",
-        "imagen" => "imagenes/libro3.jpg",
-        "precio" => "300 USD"
-    ],
-    [
-        "nombre" => "Servicio de nube ",
-        "descripcion" => "Sevicio de 10Teras de memoria para la nube",
-        "imagen" => "imagenes/nube2.jpg",
-        "precio" => "1999 USD"
-    ],
-    [
-        "nombre" => "Servidor Automatizado",
-        "descripcion" => "Servidor con refrigeracion integrada ",
-        "imagen" => "imagenes/servidor3.jpg",
-        "precio" => "550 USD"
-    ],
-    [
-        "nombre" => "Libro sistemas distribuidos",
-        "descripcion" => "Libro sobre sistema distribuidos.",
-        "imagen" => "imagenes/libro2.jpg",
-        "precio" => "30 USD"
-    ],
-    [
-        "nombre" => "Router de alta calidad",
-        "descripcion" => "Rouer con switches mecánicos util para servidores fisicos",
-        "imagen" => "imagenes/images.jpg",
-        "precio" => "120 USD"
-    ],
-
-
-
-
-
-
-
-
-    [
-        "nombre" => "Laptop Gamer",
-        "descripcion" => "Potente laptop para juegos con tarjeta gráfica RTX.",
-        "imagen" => "imagenes/laptop-gamer.jpg",
-        "precio" => "1200 USD"
-    ],
-    [
-        "nombre" => "Smartphone Pro",
-        "descripcion" => "Teléfono con pantalla OLED y cámara de 108 MP.",
-        "imagen" => "imagenes/tel.jpg",
-        "precio" => "999 USD"
-    ],
-    [
-        "nombre" => "Auriculares Bluetooth",
-        "descripcion" => "Auriculares con cancelación de ruido y sonido HD.",
-        "imagen" => "imagenes/auriculares.jpg",
-        "precio" => "150 USD"
-    ],
-    [
-        "nombre" => "Monitor 4K",
-        "descripcion" => "Monitor de alta definición ideal para diseño y gaming.",
-        "imagen" => "imagenes/monitor.jpg",
-        "precio" => "400 USD"
-    ],
-    [
-        "nombre" => "Teclado Mecánico",
-        "descripcion" => "Teclado RGB con switches mecánicos para gaming.",
-        "imagen" => "imagenes/teclado.jpg",
-        "precio" => "120 USD"
-    ],
-
-
-
-
-
-
-
-
-    [
-        "nombre" => "Servidor IOS",
-        "descripcion" => "Servidor IOS4 listo para conectar y ejecutar.",
-        "imagen" => "imagenes/ios.jpg",
-        "precio" => "300 USD"
-    ],
-    [
-        "nombre" => "Servicio de nube ",
-        "descripcion" => "Sevicio de 50Teras de memoria para la nube",
-        "imagen" => "imagenes/nube.jpg",
-        "precio" => "1999 USD"
-    ],
-    [
-        "nombre" => "Router Lenovo",
-        "descripcion" => "Auriculares con cancelación de ruido y sonido HD.",
-        "imagen" => "imagenes/router1.jpg",
-        "precio" => "550 USD"
-    ],
-    [
-        "nombre" => "Libro sistemas distribuidos",
-        "descripcion" => "Libro sobre sistema distribuidos.",
-        "imagen" => "imagenes/libro1.jpg",
-        "precio" => "30 USD"
-    ],
-    [
-        "nombre" => "Router de alta calidad",
-        "descripcion" => "Rouer con switches mecánicos para gaming.",
-        "imagen" => "imagenes/router2.jpg",
-        "precio" => "120 USD"
-    ],
-
-
-
-    [
-        "nombre" => "Libro sobre Sistemas distribuidos",
-        "descripcion" => "Libro en ingles sobre los sitemas distribuidos",
-        "imagen" => "imagenes/libro3.jpg",
-        "precio" => "300 USD"
-    ],
-    [
-        "nombre" => "Servicio de nube ",
-        "descripcion" => "Sevicio de 10Teras de memoria para la nube",
-        "imagen" => "imagenes/nube2.jpg",
-        "precio" => "1999 USD"
-    ],
-    [
-        "nombre" => "Servidor Automatizado",
-        "descripcion" => "Servidor con refrigeracion integrada ",
-        "imagen" => "imagenes/servidor3.jpg",
-        "precio" => "550 USD"
-    ],
-    [
-        "nombre" => "Libro sistemas distribuidos",
-        "descripcion" => "Libro sobre sistema distribuidos.",
-        "imagen" => "imagenes/libro2.jpg",
-        "precio" => "30 USD"
-    ],
-    [
-        "nombre" => "Router de alta calidad",
-        "descripcion" => "Rouer con switches mecánicos util para servidores fisicos",
-        "imagen" => "imagenes/images.jpg",
-        "precio" => "120 USD"
-    ],
-
-
-
-
-
-
-
-    [
-        "nombre" => "Laptop Gamer",
-        "descripcion" => "Potente laptop para juegos con tarjeta gráfica RTX.",
-        "imagen" => "imagenes/laptop-gamer.jpg",
-        "precio" => "1200 USD"
-    ],
-    [
-        "nombre" => "Smartphone Pro",
-        "descripcion" => "Teléfono con pantalla OLED y cámara de 108 MP.",
-        "imagen" => "imagenes/tel.jpg",
-        "precio" => "999 USD"
-    ],
-    [
-        "nombre" => "Auriculares Bluetooth",
-        "descripcion" => "Auriculares con cancelación de ruido y sonido HD.",
-        "imagen" => "imagenes/auriculares.jpg",
-        "precio" => "150 USD"
-    ],
-    [
-        "nombre" => "Monitor 4K",
-        "descripcion" => "Monitor de alta definición ideal para diseño y gaming.",
-        "imagen" => "imagenes/monitor.jpg",
-        "precio" => "400 USD"
-    ],
-    [
-        "nombre" => "Teclado Mecánico",
-        "descripcion" => "Teclado RGB con switches mecánicos para gaming.",
-        "imagen" => "imagenes/teclado.jpg",
-        "precio" => "120 USD"
-    ],
-
-
-
-
-
-
-
-
-    [
-        "nombre" => "Servidor IOS",
-        "descripcion" => "Servidor IOS4 listo para conectar y ejecutar.",
-        "imagen" => "imagenes/ios.jpg",
-        "precio" => "300 USD"
-    ],
-    [
-        "nombre" => "Servicio de nube ",
-        "descripcion" => "Sevicio de 50Teras de memoria para la nube",
-        "imagen" => "imagenes/nube.jpg",
-        "precio" => "1999 USD"
-    ],
-    [
-        "nombre" => "Router Lenovo",
-        "descripcion" => "Auriculares con cancelación de ruido y sonido HD.",
-        "imagen" => "imagenes/router1.jpg",
-        "precio" => "550 USD"
-    ],
-    [
-        "nombre" => "Libro sistemas distribuidos",
-        "descripcion" => "Libro sobre sistema distribuidos.",
-        "imagen" => "imagenes/libro1.jpg",
-        "precio" => "30 USD"
-    ],
-    [
-        "nombre" => "Router de alta calidad",
-        "descripcion" => "Rouer con switches mecánicos para gaming.",
-        "imagen" => "imagenes/router2.jpg",
-        "precio" => "120 USD"
-    ],
-
-
-
-    [
-        "nombre" => "Libro sobre Sistemas distribuidos",
-        "descripcion" => "Libro en ingles sobre los sitemas distribuidos",
-        "imagen" => "imagenes/libro3.jpg",
-        "precio" => "300 USD"
-    ],
-    [
-        "nombre" => "Servicio de nube ",
-        "descripcion" => "Sevicio de 10Teras de memoria para la nube",
-        "imagen" => "imagenes/nube2.jpg",
-        "precio" => "1999 USD"
-    ],
-    [
-        "nombre" => "Servidor Automatizado",
-        "descripcion" => "Servidor con refrigeracion integrada ",
-        "imagen" => "imagenes/servidor3.jpg",
-        "precio" => "550 USD"
-    ],
-    [
-        "nombre" => "Libro sistemas distribuidos",
-        "descripcion" => "Libro sobre sistema distribuidos.",
-        "imagen" => "imagenes/libro2.jpg",
-        "precio" => "30 USD"
-    ],
-    [
-        "nombre" => "Router de alta calidad",
-        "descripcion" => "Rouer con switches mecánicos util para servidores fisicos",
-        "imagen" => "imagenes/images.jpg",
-        "precio" => "120 USD"
-    ],
-
-
-
-    [
-        "nombre" => "Laptop Gamer",
-        "descripcion" => "Potente laptop para juegos con tarjeta gráfica RTX.",
-        "imagen" => "imagenes/laptop-gamer.jpg",
-        "precio" => "1200 USD"
-    ],
-    [
-        "nombre" => "Smartphone Pro",
-        "descripcion" => "Teléfono con pantalla OLED y cámara de 108 MP.",
-        "imagen" => "imagenes/tel.jpg",
-        "precio" => "999 USD"
-    ],
-    [
-        "nombre" => "Auriculares Bluetooth",
-        "descripcion" => "Auriculares con cancelación de ruido y sonido HD.",
-        "imagen" => "imagenes/auriculares.jpg",
-        "precio" => "150 USD"
-    ],
-    [
-        "nombre" => "Monitor 4K",
-        "descripcion" => "Monitor de alta definición ideal para diseño y gaming.",
-        "imagen" => "imagenes/monitor.jpg",
-        "precio" => "400 USD"
-    ],
-    [
-        "nombre" => "Teclado Mecánico",
-        "descripcion" => "Teclado RGB con switches mecánicos para gaming.",
-        "imagen" => "imagenes/teclado.jpg",
-        "precio" => "120 USD"
-    ],
-
-
-
-
-
-
-
-
-    [
-        "nombre" => "Servidor IOS",
-        "descripcion" => "Servidor IOS4 listo para conectar y ejecutar.",
-        "imagen" => "imagenes/ios.jpg",
-        "precio" => "300 USD"
-    ],
-    [
-        "nombre" => "Servicio de nube ",
-        "descripcion" => "Sevicio de 50Teras de memoria para la nube",
-        "imagen" => "imagenes/nube.jpg",
-        "precio" => "1999 USD"
-    ],
-    [
-        "nombre" => "Router Lenovo",
-        "descripcion" => "Auriculares con cancelación de ruido y sonido HD.",
-        "imagen" => "imagenes/router1.jpg",
-        "precio" => "550 USD"
-    ],
-    [
-        "nombre" => "Libro sistemas distribuidos",
-        "descripcion" => "Libro sobre sistema distribuidos.",
-        "imagen" => "imagenes/libro1.jpg",
-        "precio" => "30 USD"
-    ],
-    [
-        "nombre" => "Router de alta calidad",
-        "descripcion" => "Rouer con switches mecánicos para gaming.",
-        "imagen" => "imagenes/router2.jpg",
-        "precio" => "120 USD"
-    ],
-
-
-
-    [
-        "nombre" => "Libro sobre Sistemas distribuidos",
-        "descripcion" => "Libro en ingles sobre los sitemas distribuidos",
-        "imagen" => "imagenes/libro3.jpg",
-        "precio" => "300 USD"
-    ],
-    [
-        "nombre" => "Servicio de nube ",
-        "descripcion" => "Sevicio de 10Teras de memoria para la nube",
-        "imagen" => "imagenes/nube2.jpg",
-        "precio" => "1999 USD"
-    ],
-    [
-        "nombre" => "Servidor Automatizado",
-        "descripcion" => "Servidor con refrigeracion integrada ",
-        "imagen" => "imagenes/servidor3.jpg",
-        "precio" => "550 USD"
-    ],
-    [
-        "nombre" => "Libro sistemas distribuidos",
-        "descripcion" => "Libro sobre sistema distribuidos.",
-        "imagen" => "imagenes/libro2.jpg",
-        "precio" => "30 USD"
-    ],
-    [
-        "nombre" => "Router de alta calidad",
-        "descripcion" => "Rouer con switches mecánicos util para servidores fisicos",
-        "imagen" => "imagenes/images.jpg",
-        "precio" => "120 USD"
-    ],
-
-
-];
+// Agregar productos al carrito
+if (isset($_POST['agregar'])) {
+    $producto = [
+        'id' => $_POST['id'],
+        'nombre' => $_POST['nombre'],
+        'precio' => $_POST['precio'],
+        'cantidad' => $_POST['cantidad'],
+        'imagen' => $_POST['imagen'] // Nueva clave para la imagen
+    ];
+    $_SESSION['carrito'][] = $producto;
+}
+
+// Eliminar producto del carrito
+if (isset($_GET['eliminar'])) {
+    $indice = $_GET['eliminar'];
+    unset($_SESSION['carrito'][$indice]);
+    $_SESSION['carrito'] = array_values($_SESSION['carrito']);
+}
+
+// Vaciar carrito
+if (isset($_GET['vaciar'])) {
+    $_SESSION['carrito'] = [];
+}
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .login-container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .carrito {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        img {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+        }
+        button {
+            background-color:rgb(74, 107, 75);
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color:rgb(58, 78, 59);
+        }
+        .lg img {
+            width: 40px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="carrito">
+            <div class="titulo">
+                <table>
+                    <tr>
+                        <td>
+                            <a href="carrito.php">
+                                <img src="imagenes/logo.png" alt="Ícono de carrito">
+                            </a>
+                        </td>
+                        <td>
+                            <h1>Carrito de compras</h1>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <table>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                    <th>Acción</th>
+                </tr>
+                <?php $total = 0; ?>
+                <?php foreach ($_SESSION['carrito'] as $indice => $producto): ?>
+                    <tr>
+                        <td>
+                            <img src="imagenes/<?php echo htmlspecialchars($producto['imagen']); ?>" alt="<?php echo htmlspecialchars($producto['nombre']); ?>">
+                        </td>
+                        <td><?php echo htmlspecialchars($producto['nombre']); ?></td>
+                        <td>$<?php echo number_format($producto['precio'], 2); ?></td>
+                        <td><?php echo htmlspecialchars($producto['cantidad']); ?></td>
+                        <td>$<?php echo number_format($producto['precio'] * $producto['cantidad'], 2); ?></td>
+                        <td>
+                            <a href="?eliminar=<?php echo $indice; ?>" onclick="return confirm('¿Eliminar este producto?')">
+                                <button>Eliminar</button>
+                            </a>
+                        </td>
+                    </tr>
+                    <?php $total += $producto['precio'] * $producto['cantidad']; ?>
+                <?php endforeach; ?>
+            </table>
+
+            <br>
+            <h3>Total: $<?php echo number_format($total, 2); ?></h3>
+
+            <!-- Vaciar carrito -->
+            <?php if (!empty($_SESSION['carrito'])): ?>
+                <form method="get" style="display:inline;">
+                    <button type="submit" name="vaciar" onclick="return confirm('¿Vaciar el carrito?')">Vaciar carrito</button>
+                </form>
+            <?php endif; ?>
+        </div>
+
+        <div class="login-container button">
+            <p>Cada artículo para tu necesidad.</p>
+
+            <form action="catalogo.php" method="get">
+                <button type="submit">Agregar más productos</button>
+            </form>
+
+            <form action="principal.php" method="get">
+                <button type="submit">Regresar al inicio</button>
+            </form>
+
+            <form action="pagar.php" method="get">
+                <button type="submit">Pagar</button>
+            </form>
+        </div>
+
+        <div class="lg">
+            <a href="carrito.php">
+                <img src="imagenes/carri.png" alt="Ícono de carrito">
+            </a>
+        </div>
+    </div>
+</body>
+</html>

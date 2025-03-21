@@ -1,20 +1,9 @@
 <?php
 session_start();
 
-// Inicializar el carrito si no existe
+// Inicializar carrito si no existe
 if (!isset($_SESSION['carrito'])) {
     $_SESSION['carrito'] = [];
-}
-
-// Agregar productos al carrito
-if (isset($_POST['agregar'])) {
-    $producto = [
-        'id' => $_POST['id'],
-        'nombre' => $_POST['nombre'],
-        'precio' => $_POST['precio'],
-        'cantidad' => $_POST['cantidad']
-    ];
-    $_SESSION['carrito'][] = $producto;
 }
 
 // Eliminar producto del carrito
@@ -23,39 +12,36 @@ if (isset($_GET['eliminar'])) {
     unset($_SESSION['carrito'][$indice]);
     $_SESSION['carrito'] = array_values($_SESSION['carrito']);
 }
+
+// Vaciar carrito
+if (isset($_GET['vaciar'])) {
+    $_SESSION['carrito'] = [];
+}
 ?>
-
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Carrito de Compras</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <div class="login.container">
-<div class="carrito">
-
-<div class="titulo ">
-    <table>
-<tr>
-        <td><a href="#carrito"><a href="#carrito"> <img src="imagenes/logo.png" alt="Ícono de carrito"></a></td>
-           
-        <td>   <font size="6">
+<div class="content">
+        <div class="titulo">
+    <font size="6">
     <b><i>
-    <h1 style="color:rgb(203, 253, 228)"> Carrito de compras</h1> <br>
-    </font></td>
-   <br> </table>
-       </div>
-        <table>
+    <h1 style="color:rgb(203, 253, 228)">Carrito de compras</h1> <br>
+    </font>
+        </i>
+        </div>
+
+    <?php if (empty($_SESSION['carrito'])): ?>
+        <p>Tu carrito está vacío.</p>
+        <a href="catalogo.php"><button>Agregar productos</button></a>
+    <?php else: ?>
+        <table border="1" cellspacing="0" cellpadding="10">
             <tr>
                 <th>Producto</th>
                 <th>Precio</th>
@@ -66,65 +52,29 @@ if (isset($_GET['eliminar'])) {
             <?php $total = 0; ?>
             <?php foreach ($_SESSION['carrito'] as $indice => $producto): ?>
                 <tr>
-                    <td><?php echo htmlspecialchars($producto['nombre']); ?></td><br>
-                    <td>$<?php echo number_format($producto['precio'], 2); ?></td><br>
-                    <td><?php echo htmlspecialchars($producto['cantidad']); ?></td><br>
+                    <td><?php echo htmlspecialchars($producto['nombre']); ?></td>
+                    <td>$<?php echo number_format($producto['precio'], 2); ?></td>
+                    <td><?php echo $producto['cantidad']; ?></td>
                     <td>$<?php echo number_format($producto['precio'] * $producto['cantidad'], 2); ?></td>
                     <td>
-                        <a href="?eliminar=<?php echo $indice; ?>">Eliminar</a><br>
+                        <a href="?eliminar=<?php echo $indice; ?>" onclick="return confirm('¿Eliminar este producto?')">Eliminar</a>
                     </td>
                 </tr>
-                <?php $total += $producto['precio'] * $producto['cantidad']; ?><br>
+                <?php $total += $producto['precio'] * $producto['cantidad']; ?>
             <?php endforeach; ?>
         </table>
-        <br>
-        <h3>Total: $<?php echo number_format($total, 2); ?></h3><br>
-        
-    </div>
-    
 
+        <h3>Total: $<?php echo number_format($total, 2); ?></h3>
 
+        <form method="get" style="display:inline;">
+            <button type="submit" name="vaciar" onclick="return confirm('¿Vaciar el carrito?')">Vaciar carrito</button>
+        </form>
 
+       
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-</div>
-<div class="login-container button">
-
-
-Cada articulo para tu necesidad.
-
-
-<form action="catalogo.php" method="get">
-    <button type="submit">Agregar mas productos</button> 
-</form>
-
-<form action="principal.php" method="get">
-    <button type="submit">Regresar al inicio</button>
-
-    
-</form>
-
-
-<form action="pagar.php" method="get">
-    <button type="submit">Pagar</button> 
-    </form>
-<div class="lg">
-<a href="#carrito"><a href="#carrito"> <img src="imagenes/carri.png" alt="Ícono de carrito"></a>
-
-</div>
-</div>
+        <a href="catalogo.php"><button>Agregar más productos</button></a>
+        <a href="principal.php"><button>Regresar al inicio</button></a>
+        <a href="pagar.php"><button>Pagar</button></a>
+    <?php endif; ?>
 </body>
 </html>
